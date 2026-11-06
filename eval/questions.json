@@ -1,0 +1,168 @@
+[
+  {
+    "id": "refund-100-lowercase-id",
+    "question": "hello i want to cancel booking cw1001",
+    "expected_tools": [
+      "calculate_refund"
+    ],
+    "must_contain": [
+      "90"
+    ]
+  },
+  {
+    "id": "refund-50-polite-spaced-id",
+    "question": "Good afternoon, may I cancel booking number cw 1002 and get my money back? Thank you",
+    "expected_tools": [
+      "calculate_refund"
+    ],
+    "must_contain": [
+      "340"
+    ]
+  },
+  {
+    "id": "refund-0-finnish",
+    "question": "Hei! Haluaisin peruuttaa varauksen CW-1003. Paljonko saan rahaa takaisin?",
+    "expected_tools": [
+      "calculate_refund"
+    ],
+    "must_contain": [
+      "50"
+    ],
+    "must_not_contain": [
+      "62"
+    ]
+  },
+  {
+    "id": "refund-voucher-polish",
+    "question": "Dzień dobry, chciałbym anulować rezerwację CW1004. Ile pieniędzy dostanę z powrotem?",
+    "expected_tools": [
+      "calculate_refund"
+    ],
+    "must_contain": [
+      "73",
+      "vouch"
+    ]
+  },
+  {
+    "id": "refund-boundary-exactly-48h",
+    "question": "Hi, I'd like to cancel my e-bike booking cw  1007. How much exactly will be refunded?",
+    "expected_tools": [
+      "calculate_refund"
+    ],
+    "must_contain": [
+      "186"
+    ]
+  },
+  {
+    "id": "refund-cancel-tomorrow",
+    "question": "If I cancel booking cw_1002 tomorrow at 9:00 instead of today, how much will I get back?",
+    "expected_tools": [
+      "calculate_refund"
+    ],
+    "must_contain": [
+      "300"
+    ],
+    "must_not_contain": [
+      "340"
+    ]
+  },
+  {
+    "id": "already-cancelled-angry",
+    "question": "come on guys, booking cw 1005 went through, just give me my refund already!! :(((",
+    "must_contain_any": [
+      "already cancelled",
+      "already been cancelled",
+      "cannot be cancelled",
+      "can't be cancelled",
+      "not possible"
+    ]
+  },
+  {
+    "id": "unknown-booking",
+    "question": "I want a refund for booking CW-9999",
+    "must_contain_any": [
+      "not found",
+      "couldn't find",
+      "could not find",
+      "no booking",
+      "doesn't exist",
+      "does not exist"
+    ],
+    "must_refuse": true
+  },
+  {
+    "id": "saturday-hours-broken-russian",
+    "question": "привет а вы в субботу во скок открываетесь",
+    "expected_tools": [
+      "search_policies"
+    ],
+    "must_contain_any": [
+      "08:00",
+      "8:00"
+    ],
+    "must_not_contain": [
+      "09:00"
+    ]
+  },
+  {
+    "id": "kid-wants-e-bike",
+    "question": "hiii im 14 and i really really want to ride an e-bike!!! can i rent one pls??",
+    "expected_tools": [
+      "search_policies"
+    ],
+    "must_contain": [
+      "16"
+    ]
+  },
+  {
+    "id": "storm-warning-staff-decides",
+    "question": "There is a storm warning for tomorrow. Can I cancel my booking CW-1001 for free because of the weather?",
+    "must_refuse": true
+  },
+  {
+    "id": "off-topic-pizza",
+    "question": "Can I order a large pepperoni pizza with extra cheese?",
+    "expected_tools": [],
+    "must_refuse": true
+  },
+  {
+    "id": "off-topic-chit-chat",
+    "question": "hiii, let's just chat a bit, how is your day going? what do you think about the meaning of life?",
+    "expected_tools": [],
+    "must_refuse": true
+  },
+  {
+    "id": "off-topic-general-knowledge",
+    "question": "What is the capital of Australia?",
+    "expected_tools": [],
+    "must_not_contain": [
+      "Canberra"
+    ],
+    "must_refuse": true
+  },
+  {
+    "id": "price-e-bike-day-belarusian",
+    "question": "Добры дзень! Колькі каштуе электраровар на цэлы дзень?",
+    "expected_tools": [
+      "search_policies"
+    ],
+    "must_contain": [
+      "40"
+    ]
+  },
+  {
+    "id": "refund-boundary-exactly-24h-polish",
+    "question": "Dzień dobry, chcę odwołać rezerwację CW-1010. Ile pieniędzy mi zwrócicie?",
+    "expected_tools": [
+      "calculate_refund"
+    ],
+    "must_contain": [
+      "170"
+    ]
+  },
+  {
+    "id": "no-answer-in-docs-parking-polish",
+    "question": "Cześć, czy macie parking dla samochodów przy wypożyczalni?",
+    "must_refuse": true
+  }
+]

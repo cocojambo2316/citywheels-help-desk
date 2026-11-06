@@ -113,6 +113,7 @@ def test_get_booking_normalizes_id():
     assert get_booking("cw-1002")["found"] is True
     assert get_booking(" CW 1002 ")["found"] is True
     assert get_booking("cw1002")["found"] is True
+    assert get_booking("cw_1002")["found"] is True
 
 
 # ---------- search_policies ----------

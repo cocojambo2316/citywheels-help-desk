@@ -30,8 +30,8 @@ def load_bookings(path: Path = BOOKINGS_FILE) -> list[dict]:
 
 
 def normalize_booking_id(booking_id: str) -> str:
-    """'cw 1002', ' CW-1002 ', 'cw1002' -> 'CW-1002'."""
-    cleaned = booking_id.strip().upper().replace(" ", "").replace("-", "")
+    """'cw 1002', ' CW-1002 ', 'cw1002', 'cw_1002' -> 'CW-1002'."""
+    cleaned = re.sub(r"[^A-Z0-9]", "", booking_id.upper())  # keep only letters and digits
     if cleaned.startswith("CW"):
         cleaned = "CW-" + cleaned[2:]
     return cleaned

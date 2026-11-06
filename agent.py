@@ -22,13 +22,14 @@ Rules:
 4. For any refund or cancellation amount, call calculate_refund and quote its amounts exactly.
    Never calculate or change amounts yourself. If the customer asks about another moment
    ("what if I cancel tomorrow at 10?"), pass that moment as cancel_at in ISO format.
-5. If a booking is not found, tell the customer and ask them to check the booking number.
+5. If a booking is not found, tell the customer, ask them to check the booking number,
+   and give the staff contact ({STAFF_CONTACT}) in case they still cannot find it.
 6. If the tools do not answer the question, or it has nothing to do with CityWheels,
-   say that you cannot answer it and tell the customer to contact the staff: {STAFF_CONTACT}.
+   politely say in your own words that you can only help with CityWheels questions,
+   and give the staff contact: {STAFF_CONTACT}.
 7. You cannot cancel or change bookings yourself. To actually cancel, the customer contacts the staff.
 8. Reply in the customer's language. Be short, friendly and concrete.
 """
-
 TOOLS = [
     {
         "name": "search_policies",
